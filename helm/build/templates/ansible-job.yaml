@@ -1,0 +1,13 @@
+apiVersion: tower.ansible.com/v1alpha1
+kind: AnsibleJob
+metadata:
+  name: example-job-jboss-15
+  namespace: aap
+spec:
+  connection_secret: controller-access
+  workflow_template_name: '[WF] Create VM and install Jboss'
+  extra_vars:
+    my_namespace: jboss-15-dev
+    my_git_repo: https://github.com/janus-backstage/jboss-15.git
+    my_app_directory: jboss-15
+    my_app_path_to_pomxml: /pom.xml
